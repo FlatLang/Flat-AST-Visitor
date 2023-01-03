@@ -13,18 +13,18 @@ class {
   ) =>
     EventStream(true).on("start", (data, stream) => {
       nodeStream.on<Node>("data", (node) => {
-        log.trace({"Received data from Node EventStream: #{node}"})
+        log.trace("Received data from Node EventStream: #{node}")
 
         nodeVisitor.visit(node)
       })
 
       nodeStream.on<String>("error", (error) => {
-        log.trace({"Received error from Node EventStream: #{error}"})
+        log.trace("Received error from Node EventStream: #{error}")
         stream.emit("error", error)
       })
 
       nodeStream.on("close", {
-        log.trace({"Node EventStream closed"})
+        log.trace("Node EventStream closed")
         stream.emit("close")
       })
     })
