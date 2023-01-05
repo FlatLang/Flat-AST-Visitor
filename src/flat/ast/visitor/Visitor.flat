@@ -11,7 +11,7 @@ class {
     EventStream nodeStream,
     VisitorBase nodeVisitor
   ) =>
-    EventStream(true).on("start", (data, stream) => {
+    EventStream(true).on("start", (_, stream) => {
       nodeStream.on<Node>("data", (node) => {
         log.trace("Received data from Node EventStream: #{node}")
 
