@@ -3,5 +3,5 @@ package flat/ast/visitor
 import flat/ast
 
 abstract class {
-  public abstract visit(Node node)
+    public abstract visit(Node node)
 }
